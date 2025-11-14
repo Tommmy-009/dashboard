@@ -1,0 +1,15 @@
+version: "3"
+services:
+  hub:
+    build: .
+    container_name: home-control-hub
+    restart: always
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    environment:
+      TRUST_PROXY: 1
+      NODE_ENV: production
+    volumes:
+      - .:/app
